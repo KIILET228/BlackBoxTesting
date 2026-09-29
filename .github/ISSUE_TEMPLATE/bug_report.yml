@@ -1,1 +1,102 @@
+name: Отчет об ошибке
+description: Создать отчет о дефекте приложения
+title: "[Ошибка]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Форма регистрации дефекта
+        Пожалуйста, заполните все обязательные поля ниже. Поверьте, вы прочитали и ознакомились с уже существующими отчетами о дефектах.
 
+  - type: input
+    id: summary
+    attributes:
+      label: Описание
+      description: Краткое описание найденного дефекта
+      placeholder: Введите краткую суть ошибки
+    validations:
+      required: true
+
+  - type: textarea
+    id: preconditions
+    attributes:
+      label: Предусловия
+      description: Условия, необходимые для воспроизведения дефекта
+      placeholder: Например: Приложение запущено, пользователь авторизован...
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Пошаговая инструкция для воспроизведения ошибки
+      placeholder: |
+        1. Открыть приложение
+        2. Нажать на кнопку...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемый результат
+      description: Что должно было произойти согласно требованиям
+      placeholder: Опишите ожидаемое поведение
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактический результат
+      description: Что произошло на самом деле
+      placeholder: Опишите фактическое поведение
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Скриншоты / Доп. материалы
+      description: Прикрепите скриншоты, логи или файлы
+      placeholder: Перетащите файлы сюда или вставьте ссылки
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Приоритет
+      description: Укажите приоритет исправления дефекта
+      options:
+        - Низкий (Low)
+        - Средний (Medium)
+        - Высокий (High)
+        - Критический (Urgent)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Серьезность
+      description: Укажите степень влияния дефекта на систему
+      options:
+        - Незначительная (Trivial)
+        - Небольшая (Minor)
+        - Средняя (Major)
+        - Критическая (Critical)
+        - Блокирующая (Blocker)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: duplicate_check
+    attributes:
+      label: Подтверждение
+      description: Подтвердите проверку дубликатов
+      options:
+        - label: Я ознакомился(-лась) с уже существующими отчетами о дефектах
+          required: true
